@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "typedoc": "typedoc --hideGenerator --includeDeclarations --entryPoint monaco --out dist monaco.d.ts"
+    "typedoc": "typedoc monaco.d.ts"
   },
   "devDependencies": {
     "typedoc": "^0.15.0",
