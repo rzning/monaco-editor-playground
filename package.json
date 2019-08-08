@@ -1,0 +1,17 @@
+{
+  "name": "monaco-editor-playground",
+  "version": "1.0.0",
+  "description": "Monaco Editor Playground",
+  "main": "index.js",
+  "repository": "https://github.com/rzning/monaco-editor-playground.git",
+  "author": "Zhenning Ruan <rzning@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "typedoc": "typedoc --hideGenerator --includeDeclarations --entryPoint monaco --out dist monaco.d.ts"
+  },
+  "devDependencies": {
+    "typedoc": "^0.15.0",
+    "typescript": "^3.5.3"
+  }
+}
