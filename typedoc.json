@@ -1,5 +1,5 @@
 {
-  "mode": "modules",
+  "mode": "file",
   "out": "dist/api",
   "includeDeclarations": true,
   "entryPoint": "monaco",

@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "typedoc": "typedoc monaco.d.ts"
+    "typedoc": "typedoc types"
   },
   "devDependencies": {
     "typedoc": "^0.15.0",

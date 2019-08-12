@@ -1,15 +1,8 @@
 declare namespace monaco {
-
+  //
 }
 
 declare namespace monaco.editor {
-
-  /**
-   * 编辑器
-   */
-  export interface IEditor {
-
-  }
 
 }
 
