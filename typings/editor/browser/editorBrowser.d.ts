@@ -1,4 +1,4 @@
-// todo..
+// todo...
 
 declare namespace monaco.editor {
 

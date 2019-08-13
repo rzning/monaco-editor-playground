@@ -1,6 +1,11 @@
 // todo...
 
+/// <reference types="../../browser/editorBrowser" />
+/// <reference types="../../common/config/editorOptions" />
+/// <reference types="../../common/model/textModel" />
+
 declare namespace monaco.editor {
+
   /**
    * 用于创建一个编辑器的选项
    */
@@ -13,11 +18,8 @@ declare namespace monaco.editor {
     value?: string;
   }
 
-  /**
-   * 编辑器配置选项
-   */
-  export interface IEditorOptions {
-    
-    ariaLabel?: string;
+  export interface IStandaloneCodeEditor extends ICodeEditor {
+    //
   }
+
 }

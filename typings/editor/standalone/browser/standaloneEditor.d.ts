@@ -1,5 +1,7 @@
 // todo...
 
+/// <reference types="./standaloneCodeEditor" />
+
 declare namespace monaco.editor {
 
   /**
