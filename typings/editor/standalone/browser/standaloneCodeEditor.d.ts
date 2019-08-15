@@ -22,4 +22,19 @@ declare namespace monaco.editor {
     //
   }
 
+  /**
+   * 用于创建一个差异 ( Diff ) 编辑器的选项
+   */
+  export interface IDiffEditorConstructionOptions extends IDiffEditorOptions { // :115
+    theme?: string;
+  }
+
+  export interface IStandaloneDiffEditor extends IDiffEditor { // :131
+    //
+  }
+
+  export interface IDiffEditor extends editorCommon.IEditor { // :836
+    //
+  }
+
 }
