@@ -1,18 +1,20 @@
 // todo...
 
+/// <reference types="../common/editorCommon" />
+
 declare namespace monaco.editor {
 
   /**
-   * 编辑器
+   * 一个富代码编辑器
    */
-  export interface IEditor {
+  export interface ICodeEditor extends IEditor { // :324
     //
   }
-  
+
   /**
-   * 富代码编辑器
+   * 一个富差异编辑器
    */
-  export interface ICodeEditor extends IEditor {
+  export interface IDiffEditor extends IEditor { // :836
     //
   }
 
