@@ -16,4 +16,5 @@ declare namespace monaco.editor {
   export interface IWebWorkerOptions { // :38
     //
   }
+
 }
