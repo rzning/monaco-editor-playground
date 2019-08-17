@@ -9,4 +9,11 @@ declare namespace monaco.editor {
     //
   }
 
+  /**
+   * 一个标记
+   */
+  export interface IMarker {
+    //
+  }
+
 }

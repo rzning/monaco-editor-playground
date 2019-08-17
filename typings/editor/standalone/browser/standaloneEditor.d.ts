@@ -4,6 +4,8 @@
 /// <reference types="../../../base/common/lifecycle" />
 /// { URI } :8
 /// <reference types="../../../base/common/uri" />
+/// { IWebWorkerOptions, MonacoWebWorker, createWebWorker as actualCreateWebWorker } :23
+/// <reference types="../../common/services/webWorker" />
 /// { IDiffEditorConstructionOptions, IEditorConstructionOptions, IStandaloneCodeEditor, IStandaloneDiffEditor, StandaloneDiffEditor, StandaloneEditor } :27
 /// <reference types="./standaloneCodeEditor" />
 /// { DynamicStandaloneServices, IEditorOverrideServices, StaticServices } :28
@@ -32,7 +34,7 @@ declare namespace monaco.editor {
    * `domElement` 应该为空（不包含任何 DOM 节点）。
    * 编辑器将读取 `domElement` 的大小。
    */
-	export function createDiffEditor(domElement: HTMLElement, options?: IDiffEditorConstructionOptions, override?: IEditorOverrideServices): IStandaloneDiffEditor;
+  export function createDiffEditor(domElement: HTMLElement, options?: IDiffEditorConstructionOptions, override?: IEditorOverrideServices): IStandaloneDiffEditor;
 
   /**
    * 一个差异导航
@@ -73,5 +75,46 @@ declare namespace monaco.editor {
    * 设置指定模型的标记
    */
   export function setModelMarkers(model: ITextModel, owner: string, markers: IMarkerData[]): void; // :176
+
+  /**
+   * 获取所有者（和/或资源）的标记
+   * @returns 标记列表
+   */
+  export function getModelMarkers(filter: { owner?: string, resource?: Uri, take?: number }): IMarker[]; // :187
+
+  /**
+   * 获取具有 `uri` 的模型（如果它存在）
+   */
+  export function getModel(uri: Uri): ITextModel | null;
+
+  /**
+   * 获取所有创建的模型
+   */
+  export function getModels(): ITextModel[];
+
+
+  /**
+   * 在创建模型时触发
+   * @event
+   */
+  export function onDidCreateModel(listener: (model: ITextModel) => void): IDisposable;
+
+  /**
+   * 在销毁一个模型之前触发
+   * @event
+   */
+  export function onWillDisposeModel(listener: (model: ITextModel) => void): IDisposable;
+
+  /**
+   * 当给一个模型设置一个不同的语言时触发
+   * @event
+   */
+  export function onDidChangeModelLanguage(listener: (e: { readonly model: ITextModel; readonly oldLanguage: string; }) => void): IDisposable;
+
+  /**
+   * 
+   * @param opts 
+   */
+	export function createWebWorker<T>(opts: IWebWorkerOptions): MonacoWebWorker<T>;
 
 }
