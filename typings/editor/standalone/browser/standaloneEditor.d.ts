@@ -121,36 +121,36 @@ declare namespace monaco.editor {
    * 创建新的一个具有内置模型同步功能的 Web Worker 线程。
    * 指定一个要加载的 AMD 模块，该模块将 `create` 一个将被代理的对象。
    */
-	export function createWebWorker<T>(opts: IWebWorkerOptions): MonacoWebWorker<T>;
+  export function createWebWorker<T>(opts: IWebWorkerOptions): MonacoWebWorker<T>;
 
   /**
    * 使用属性 `data-lang` 对 `domNode` 的内容着色
    */
   export function colorizeElement(domNode: HTMLElement, options: IColorizerElementOptions): Promise<void>;
 
-	/**
+  /**
    * 使用 `languageId` 指定语言对 `text` 文本进行着色
-	 */
-	export function colorize(text: string, languageId: string, options: IColorizerOptions): Promise<string>;
+   */
+  export function colorize(text: string, languageId: string, options: IColorizerOptions): Promise<string>;
 
-	/**
+  /**
    * 对模型中的一行进行着色
-	 */
-	export function colorizeModelLine(model: ITextModel, lineNumber: number, tabSize?: number): string;
+   */
+  export function colorizeModelLine(model: ITextModel, lineNumber: number, tabSize?: number): string;
 
-	/**
+  /**
    * 使用 `languageId` 指定语言对 `text` 文本进行词法分析
-	 */
-	export function tokenize(text: string, languageId: string): Token[][];
+   */
+  export function tokenize(text: string, languageId: string): Token[][];
 
   /**
    * 定义一个新主题或更新一个现有主题
-	 */
-	export function defineTheme(themeName: string, themeData: IStandaloneThemeData): void;
+   */
+  export function defineTheme(themeName: string, themeData: IStandaloneThemeData): void;
 
-	/**
+  /**
    * 切换到 `themeName` 指定的主题
-	 */
-	export function setTheme(themeName: string): void;
+   */
+  export function setTheme(themeName: string): void;
 
 }

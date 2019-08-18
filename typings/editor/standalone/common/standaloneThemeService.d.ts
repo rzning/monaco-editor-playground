@@ -1,8 +1,5 @@
+// 独立的主题服务
 // todo...
-
-/**
- * 独立的主题服务
- */
 
 /// { ITokenThemeRule, TokenTheme }
 /// <reference types="../../common/modes/supports/tokenization" />
@@ -25,12 +22,12 @@ declare namespace monaco.editor {
    * 一个独立的主题数据
    */
   export interface IStandaloneThemeData {
-		base: BuiltinTheme;
-		inherit: boolean;
-		rules: ITokenThemeRule[];
-		encodedTokensColors?: string[];
-		colors: IColors;
-	}
+    base: BuiltinTheme;
+    inherit: boolean;
+    rules: ITokenThemeRule[];
+    encodedTokensColors?: string[];
+    colors: IColors;
+  }
 
   /**
    * 一个独立的主题
@@ -39,5 +36,5 @@ declare namespace monaco.editor {
     tokenTheme: TokenTheme;
     themeName: string;
   }
-  
+
 }

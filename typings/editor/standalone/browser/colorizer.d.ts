@@ -1,6 +1,4 @@
-/**
- * 着色器
- */
+// 着色器
 
 declare namespace monaco.editor {
 

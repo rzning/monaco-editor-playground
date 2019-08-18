@@ -1,6 +1,7 @@
 {
   "mode": "file",
   "out": "dist/api",
+  "theme": "typedoc-theme",
   "includeDeclarations": true,
   "entryPoint": "monaco",
   "name": "Monaco Editor API",

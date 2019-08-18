@@ -13,11 +13,12 @@ declare namespace monaco {
     readonly fragment: string;
   }
 
-	export interface UriComponents {
-		scheme: string;
-		authority: string;
-		path: string;
-		query: string;
-		fragment: string;
+  export interface UriComponents {
+    scheme: string;
+    authority: string;
+    path: string;
+    query: string;
+    fragment: string;
   }
+
 }
