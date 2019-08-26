@@ -153,4 +153,8 @@ declare namespace monaco.editor {
    */
   export function setTheme(themeName: string): void;
 
+  /**
+   * 清除所有缓存的字体测量值，并触发重新测量
+   */
+  export function remeasureFonts(): void;
 }
