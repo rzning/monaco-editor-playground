@@ -17,4 +17,10 @@ declare namespace monaco {
     readonly column: number;
   }
 
+  /**
+   * 编辑器中的一个位置
+   */
+  export class Position {
+    //
+  }
 }

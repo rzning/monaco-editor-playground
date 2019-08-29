@@ -88,6 +88,17 @@ declare namespace monaco.editor {
   export type IEditorViewState = ICodeEditorViewState | IDiffEditorViewState;
 
   /**
+   * 滚动类型
+   */
+  export const enum ScrollType {
+    /** 平滑滚动 */
+    Smooth = 0,
+    /** 即时滚动 */
+    Immediate = 1,
+  }
+  
+
+  /**
    * 一个编辑器
    */
   export interface IEditor { // :240
@@ -171,6 +182,64 @@ declare namespace monaco.editor {
      * @returns 列号
      */
     getVisibleColumnFromPosition(position: IPosition): number;
+
+    /**
+     * 返回主光标的位置
+     */
+    getPosition(): Position | null;
+
+    /**
+     * 设置主光标位置。这将移除所有辅助光标。
+     * @param position 新的主光标位置
+     */
+    setPosition(position: IPosition): void;
+
+    /**
+     * 显示 `lineNumber` 指定行，必要时进行垂直滚动。
+     * @param lineNumber 行号
+     * @param scrollType 滚动类型
+     */
+    revealLine(lineNumber: number, scrollType?: ScrollType): void;
+
+    /**
+     * 垂直居中显示 `lineNumber` 指定行，必要时垂直滚动。
+     * @param lineNumber 行号
+     * @param scrollType 滚动类型
+     */
+    revealLineInCenter(lineNumber: number, scrollType?: ScrollType): void;
+
+    /**
+     * 仅当 `lineNumber` 指定行在可视窗口之外时，将其垂直滚动到中间位置。
+     * @param lineNumber 行号
+     * @param scrollType 滚动类型
+     */
+    revealLineInCenterIfOutsideViewport(lineNumber: number, scrollType?: ScrollType): void;
+
+    /**
+     * 显示 `position` 指定位置，必要时进行垂直或水平滚动。
+     * @param position 位置
+     * @param scrollType 滚动类型
+     */
+    revealPosition(position: IPosition, scrollType?: ScrollType): void;
+
+    /**
+     * 居中显示 `position` 指定位置，必要时进行垂直或水平滚动。
+     * @param position 位置
+     * @param scrollType 滚动类型
+     */
+    revealPositionInCenter(position: IPosition, scrollType?: ScrollType): void;
+
+    /**
+     * 仅当 `position` 指定位置在可视窗口之外时，进行必要垂直或水平滚动使其居中显示。
+     * @param position 位置
+     * @param scrollType 滚动类型
+     */
+    revealPositionInCenterIfOutsideViewport(position: IPosition, scrollType?: ScrollType): void;
+
+    /**
+     * 返回编辑器的主选择区域
+     */
+    getSelection(): Selection | null;
   }
 
   /**
