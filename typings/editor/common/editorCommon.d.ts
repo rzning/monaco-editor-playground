@@ -3,6 +3,8 @@
 /// <reference types="../../base/common/lifecycle" />
 /// <reference types="./config/editorOptions" />
 /// <reference types="./core/position" />
+/// <reference types="./core/range" />
+/// <reference types="./core/selection" />
 /// <reference types="./model" />
 
 declare namespace monaco.editor {
@@ -240,6 +242,88 @@ declare namespace monaco.editor {
      * 返回编辑器的主选择区域
      */
     getSelection(): Selection | null;
+
+    /**
+     * 返回编辑器中所有选择区域
+     */
+    getSelections(): Selection[] | null;
+
+    /**
+     * 设置编辑器的主选择区域。
+     * 这将移除所有辅助光标。
+     * @param selection 新的选择区域对象
+     */
+    setSelection(selection: IRange): void;
+    setSelection(selection: Range): void;
+    setSelection(selection: ISelection): void;
+    setSelection(selection: Selection): void;
+
+    /**
+     * 为编辑器的所有光标设置选择区域。
+     * 必要时将删除或添加光标。
+     * @param selections 选择区域组
+     */
+    setSelections(selections: ISelection[]): void;
+
+    /**
+     * 显示指定范围多行，必要时进行垂直滚动。
+     * @param startLineNumber 起始行号
+     * @param endLineNumber 结束行号
+     * @param scrollType 滚动类型
+     */
+    revealLines(startLineNumber: number, endLineNumber: number, scrollType?: ScrollType): void;
+
+    /**
+     * 垂直居中显示指定范围的多行，必要时进行垂直滚动。
+     * @param lineNumber 起始行号
+     * @param endLineNumber 结束行号
+     * @param scrollType 滚动类型
+     */
+    revealLinesInCenter(lineNumber: number, endLineNumber: number, scrollType?: ScrollType): void;
+
+    /**
+     * 仅当指定范围多行在可视窗口之外时，进行必要的垂直滚动使其居中显示。
+     * @param lineNumber 起始行号
+     * @param endLineNumber 结束行号
+     * @param scrollType 滚动类型
+     */
+    revealLinesInCenterIfOutsideViewport(lineNumber: number, endLineNumber: number, scrollType?: ScrollType): void;
+
+    /**
+     * 显示 `range` 指定区域，必要时进行垂直或水平滚动。
+     * @param range 区域范围
+     * @param scrollType 滚动类型
+     */
+    revealRange(range: IRange, scrollType?: ScrollType): void;
+
+    /**
+     * 居中显示 `range` 指定区域，必要时进行垂直或水平滚动。
+     * @param range 区域范围
+     * @param scrollType 滚动类型
+     */
+    revealRangeInCenter(range: IRange, scrollType?: ScrollType): void;
+
+    /**
+     * 在可视窗口顶部显示 `range` 指定区域，必要时进行垂直或水平滚动。
+     * @param range 区域范围
+     * @param scrollType 滚动类型
+     */
+    revealRangeAtTop(range: IRange, scrollType?: ScrollType): void;
+
+    /**
+     * 仅当 `range` 指定区域不在可视窗口内时，进行必要的垂直或水平滚动使其居中显示。
+     * @param range 区域范围
+     * @param scrollType 滚动类型
+     */
+    revealRangeInCenterIfOutsideViewport(range: IRange, scrollType?: ScrollType): void;
+
+    /**
+     * 直接触发一个处理方法或一个编辑器操作
+     * @param source 触发源
+     * @param handlerId 处理方法或一个贡献的 ID
+     * @param payload 要发送给处理方法的额外数据
+     */
+    trigger(source: string, handlerId: string, payload: any): void;
   }
 
   /**
