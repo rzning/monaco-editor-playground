@@ -324,6 +324,35 @@ declare namespace monaco.editor {
      * @param payload 要发送给处理方法的额外数据
      */
     trigger(source: string, handlerId: string, payload: any): void;
+
+    /**
+     * 获取附加到此编辑器的当前模型
+     */
+    getModel(): IEditorModel | null;
+
+    /**
+     * 设置附加到此编辑器的当前模型。
+     * 
+     * 如果先前的模型是由编辑器通过 `options` 文字对象中的 `value` 键创建的，则它将被销毁。
+     * 否则，如果先前的模型是通过 `setModel` 设置的，或者是 `options` 文字对象中的 `model` 键，则不会销毁先前的模型。
+     * 
+     * 调用 `setModel(null)` 可以安全地从编辑器中分离当前模型。
+     * 
+     * @param model 一个编辑器模型实例
+     */
+    setModel(model: IEditorModel | null): void;
+
+    /**
+     * 改变装饰组。
+     * 
+     * 通过此 `changeAccessor` 访问器添加的所有装饰，将获得编辑器的 `ownerId`
+     * （这意味着它们不会出现在其他编辑器中）。
+     * 
+     * @param callback 
+     * @see `ITextModel.changeDecorations`
+     * @internal
+     */
+    changeDecorations(callback: (changeAccessor: IModelDecorationsChangeAccessor) => any): any;
   }
 
   /**
