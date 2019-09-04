@@ -355,6 +355,56 @@ declare namespace monaco.editor {
     changeDecorations(callback: (changeAccessor: IModelDecorationsChangeAccessor) => any): any;
   }
 
+
+  /**
+   * 一个差异编辑器
+   * @internal
+   */
+  export interface IDiffEditor extends IEditor { // :467
+
+    /**
+     * 获取当前差异编辑器模型
+     */
+    getModel(): IDiffEditorModel | null;
+
+    /**
+     * 获取 `original` 编辑器
+     */
+    getOriginalEditor(): IEditor;
+
+    /**
+     * 获取 `modified` 编辑器
+     */
+    getModifiedEditor(): IEditor;
+  }
+
+  /**
+   * 每次创建新编辑器时都会一同创建的编辑器贡献，并在编辑器销毁时一同被销毁。
+   */
+  export interface IEditorContribution { // :488
+    
+    /**
+     * 获取此贡献的唯一标识
+     */
+    getId(): string;
+
+    /**
+     * 销毁此贡献
+     */
+    dispose(): void;
+
+    /**
+     * 保存视图状态
+     */
+    saveViewState?(): any;
+
+    /**
+     * 恢复 `state` 指定视图状态
+     * @param state 视图状态
+     */
+    restoreViewState?(state: any): void;
+  }
+
   /**
    * `IEditor` 的类型
    */
