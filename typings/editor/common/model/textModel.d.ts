@@ -1,13 +1,18 @@
 // todo...
 
+/// <reference types="../../../base/common/lifecycle" />
+
 declare namespace monaco.editor {
+
   /**
-   * 一个模型 ( Model )
+   * 一个文本编辑器模型
    */
-  export interface ITextModel {
+  export class TextModel extends Disposable implements ITextModel { // :160
+    
+    public readonly id: string; // :240
+    public readonly isForSimpleWidget: boolean;
 
-    readonly uri: string;
-
-    readonly id: string;
+    // public get uri(): Uri; // :556
+    public uri: Uri;
   }
 }
